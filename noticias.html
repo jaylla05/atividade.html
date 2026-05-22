@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portal de Notícias</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      color: #333;
+    }
+
+  
+    header {
+      background: #1a1a2e;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      font-size: 36px;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      font-size: 13px;
+      color: #aaa;
+      margin-top: 6px;
+    }
+
+  
+    nav {
+      background: #e63946;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      padding: 0 16px;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 12px 18px;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+
+    .container {
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 16px;
+      display: flex;
+      gap: 24px;
+    }
+
+    
+    main {
+      flex: 1;
+    }
+
+    main h2 {
+      font-size: 18px;
+      border-left: 4px solid #e63946;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+
+    .artigo {
+      background: white;
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .artigo .categoria {
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #e63946;
+      margin-bottom: 8px;
+    }
+
+    .artigo h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .artigo p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .artigo .meta {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .artigo a {
+      color: #e63946;
+      font-size: 13px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .artigo a:hover { text-decoration: underline; }
+
+  
+    aside {
+      width: 260px;
+      flex-shrink: 0;
+    }
+
+    .widget {
+      background: white;
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .widget h3 {
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e63946;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+
+    .widget ul {
+      list-style: none;
+    }
+
+    .widget ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 13px;
+      color: #444;
+    }
+
+    .widget ul li:last-child { border-bottom: none; }
+
+    .widget ul li a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .widget ul li a:hover { color: #e63946; }
+
+    .widget input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .widget button {
+      width: 100%;
+      padding: 9px;
+      background: #e63946;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .widget button:hover { background: #c1121f; }
+
+   
+    footer {
+      background: #1a1a2e;
+      color: #aaa;
+      text-align: center;
+      padding: 24px 16px;
+      margin-top: 20px;
+    }
+
+    footer p {
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    footer a {
+      color: #e63946;
+      text-decoration: none;
+      margin: 0 8px;
+      font-size: 13px;
+    }
+
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+
+  <header>
+    <h1>📰 Portal News</h1>
+    <p>Informação rápida e confiável · 22 de maio de 2026</p>
+  </header>
+
+
+  <nav>
+    <ul>
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Brasil</a></li>
+      <li><a href="#">Mundo</a></li>
+      <li><a href="#">Economia</a></li>
+      <li><a href="#">Esportes</a></li>
+      <li><a href="#">Tecnologia</a></li>
+    </ul>
+  </nav>
+
+ 
+  <div class="container">
+
+  
+    <main>
+      <h2>Últimas Notícias</h2>
+
+      <div class="artigo">
+        <p class="categoria">Tecnologia</p>
+        <h3>Inteligência artificial melhora diagnósticos médicos no Brasil</h3>
+        <p>
+          Pesquisadores brasileiros desenvolveram um sistema de IA capaz de identificar
+          doenças com 97% de precisão em exames de imagem. O projeto já está sendo
+          testado em hospitais públicos de São Paulo e Minas Gerais.
+        </p>
+        <p class="meta">Por Carlos Mendes · 22/05/2026 às 08:45</p>
+        <a href="#">Ler mais →</a>
+      </div>
+
+      <div class="artigo">
+        <p class="categoria">Economia</p>
+        <h3>Pará registra maior crescimento econômico da região Norte</h3>
+        <p>
+          O estado do Pará apresentou crescimento de 6,8% no PIB regional, liderando
+          os índices econômicos do Norte do país pelo terceiro ano seguido. O resultado
+          é impulsionado pelos setores de mineração e agronegócio.
+        </p>
+        <p class="meta">Por Ana Lima · 22/05/2026 às 07:10</p>
+        <a href="#">Ler mais →</a>
+      </div>
+
+      <div class="artigo">
+        <p class="categoria">Esportes</p>
+        <h3>Seleção brasileira goleia por 4 a 0 na estreia da Copa das Nações</h3>
+        <p>
+          Com dois gols de Vinicius Jr., o Brasil abriu a competição com uma goleada
+          histórica diante de 80 mil torcedores. O técnico prometeu ajustes táticos
+          para as próximas rodadas do torneio.
+        </p>
+        <p class="meta">Por Roberto Alves · 21/05/2026 às 22:30</p>
+        <a href="#">Ler mais →</a>
+      </div>
+    </main>
+
+  
+    <aside>
+
+      <div class="widget">
+        <h3>Mais Lidas</h3>
+        <ul>
+          <li><a href="#">Novo imposto entra em votação no Congresso</a></li>
+          <li><a href="#">Chuvas fortes atingem capitais do Nordeste</a></li>
+          <li><a href="#">Startup do Pará recebe aporte de R$ 120 mi</a></li>
+          <li><a href="#">Pesquisa aponta empate nas eleições</a></li>
+        </ul>
+      </div>
+
+      <div class="widget">
+        <h3>Categorias</h3>
+        <ul>
+          <li><a href="#">Brasil (48)</a></li>
+          <li><a href="#">Mundo (31)</a></li>
+          <li><a href="#">Economia (27)</a></li>
+          <li><a href="#">Tecnologia (22)</a></li>
+          <li><a href="#">Esportes (19)</a></li>
+        </ul>
+      </div>
+
+      <div class="widget">
+        <h3>Newsletter</h3>
+        <p style="font-size:13px; color:#666; margin-bottom:10px;">
+          Receba notícias no seu e-mail todos os dias.
+        </p>
+        <input type="email" placeholder="seu@email.com" />
+        <button>Assinar</button>
+      </div>
+
+    </aside>
+
+  </div>
+
+
+  <footer>
+    <p>© 2026 Portal News · Todos os direitos reservados</p>
+    <p>
+      <a href="#">Sobre nós</a>
+      <a href="#">Contato</a>
+      <a href="#">Privacidade</a>
+    </p>
+  </footer>
+
+</body>
+</html>
