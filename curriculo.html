@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Currículo – Jaylla</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf7f4;
+      --accent: #c0392b;
+      --accent-light: #f5e6e4;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --border: #e0d8d0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      background: #1a1a1a;
+      position: relative;
+    }
+
+    .photo-frame {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .photo-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, transparent 70%, var(--bg) 100%);
+    }
+
+    .hero-right {
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px 80px 40px;
+      position: relative;
+    }
+
+    .hero-right::before {
+      content: 'J';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 400px;
+      font-weight: 300;
+      color: var(--accent-light);
+      position: absolute;
+      top: -60px;
+      right: -20px;
+      line-height: 1;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: -1px;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 30px;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 400;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── SECTIONS ── */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .section {
+      margin-bottom: 72px;
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.7s ease forwards;
+    }
+
+    .section:nth-child(1) { animation-delay: 0.1s; }
+    .section:nth-child(2) { animation-delay: 0.2s; }
+    .section:nth-child(3) { animation-delay: 0.3s; }
+    .section:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+
+    .about-text {
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--text);
+      font-weight: 300;
+      max-width: 640px;
+    }
+
+    .about-text strong {
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .card {
+      display: flex;
+      gap: 28px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      background: #fff;
+      margin-bottom: 16px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      box-shadow: 4px 4px 0 var(--accent-light);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 22px;
+    }
+
+    .card-year {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .contact-item {
+      padding: 24px;
+      border: 1px solid var(--border);
+      background: #fff;
+      text-align: center;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .contact-item:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .contact-item:hover .contact-label,
+    .contact-item:hover .contact-value { color: #fff; }
+
+    .contact-icon { font-size: 28px; margin-bottom: 10px; }
+
+    .contact-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+      transition: color 0.3s;
+    }
+
+    .contact-value {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      transition: color 0.3s;
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      padding: 48px 40px;
+    }
+
+    .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .footer-line {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 16px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: #666;
+      letter-spacing: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { height: 60vw; }
+      .hero-right { padding: 48px 32px; }
+      .hero-right::before { font-size: 200px; }
+      .content { padding: 48px 24px; }
+      .card { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-left">
+    <div class="photo-frame">
+      <!--
+        ==============================================
+        FOTO: coloque o arquivo da sua foto na mesma
+        pasta que este HTML e troque "foto.jpg" pelo
+        nome real do arquivo. Ex: "jaylla.jpg"
+        ==============================================
+      -->
+      <img src="foto.jpg" alt="Foto de Jaylla" />
+    </div>
+  </div>
+  <div class="hero-right">
+    <p class="hero-tag">Currículo Profissional</p>
+    <h1 class="hero-name">Jay<em>lla</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-subtitle">Atendimento ao Público · Ensino Superior</p>
+  </div>
+</header>
+
+<!-- CONTEÚDO -->
+<main class="content">
+
+  <!-- Sobre -->
+  <section class="section">
+    <p class="section-label">01 — Perfil</p>
+    <h2 class="section-title">Sobre Mim</h2>
+    <p class="about-text">
+      Eu me chamo <strong>Jaylla</strong> e tenho <strong>21 anos</strong>.
+      Sou uma pessoa dedicada, comunicativa e comprometida com o meu
+      desenvolvimento profissional e acadêmico. Busco oportunidades onde
+      possa aplicar minhas habilidades interpessoais e crescer continuamente.
+    </p>
+  </section>
+
+  <!-- Formação -->
+  <section class="section">
+    <p class="section-label">02 — Educação</p>
+    <h2 class="section-title">Formação Acadêmica</h2>
+    <div class="card">
+      <div class="card-icon">🎓</div>
+      <div class="card-body">
+        <p class="card-year">Em andamento · 2024 – Presente</p>
+        <p class="card-title">Ensino Superior</p>
+        <p class="card-desc">
+          Cursando graduação, em busca de formação sólida para consolidar
+          a carreira profissional e ampliar conhecimentos na área de atuação.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiência -->
+  <section class="section">
+    <p class="section-label">03 — Carreira</p>
+    <h2 class="section-title">Experiência Profissional</h2>
+    <div class="card">
+      <div class="card-icon">💬</div>
+      <div class="card-body">
+        <p class="card-year">Experiência Profissional</p>
+        <p class="card-title">Atendimento ao Público</p>
+        <p class="card-desc">
+          Experiência no atendimento direto a clientes, com foco em comunicação
+          clara, resolução de demandas e satisfação do usuário. Habilidade em
+          lidar com diferentes perfis de pessoas, manter a calma em situações
+          desafiadoras e oferecer um serviço de qualidade.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contatos -->
+  <section class="section">
+    <p class="section-label">04 — Contato</p>
+    <h2 class="section-title">Fale Comigo</h2>
+    <div class="contacts-grid">
+      <div class="contact-item">
+        <div class="contact-icon">📱</div>
+        <p class="contact-label">WhatsApp / Telefone</p>
+        <p class="contact-value">(99) 93098-560</p>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <p class="contact-label">Localização</p>
+        <p class="contact-value">Pará, Brasil</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-name">Jaylla</p>
+  <div class="footer-line"></div>
+  <p class="footer-copy">© 2026 · Todos os direitos reservados</p>
+</footer>
+
+</body>
+</html>
